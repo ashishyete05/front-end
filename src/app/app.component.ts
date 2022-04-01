@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './employee/login.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'front-end';
+  title = 'Employee Management Application';
+  currentDateAndTime:string=""; 
+
+  constructor(public loginService:LoginService){
+  setInterval(()=>{
+    let d = new Date();
+    this.currentDateAndTime = d.toDateString()+"-"+d.toLocaleTimeString();
+  },1000);   
+}
 }
